@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "472638190008",
+    "firebase_url": "https://prodtea-6b8ad.firebaseio.com",
+    "project_id": "prodtea-6b8ad",
+    "storage_bucket": "prodtea-6b8ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472638190008:android:e6ea8f74d50c1721",
+        "android_client_info": {
+          "package_name": "com.ufc.prodtea"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "472638190008-nehb38s7jlc3s4pm992bj6no5mnknpt2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWs1bbi-8oYf91woSlmoOBow8qV_BXmtY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "472638190008-nehb38s7jlc3s4pm992bj6no5mnknpt2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
