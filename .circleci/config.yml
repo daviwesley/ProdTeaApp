@@ -13,7 +13,7 @@ jobs:
       - restore_cache:
           key: node-v1-{{ checksum "package.json" }}-{{ arch }}
 
-      - run: yarn install
+      - run: npm install
 
       - save_cache:
           key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
@@ -29,7 +29,6 @@ jobs:
           name: jest tests
           command: |
             mkdir -p test-results/jest
-            pod install
             yarn run test
           environment:
             JEST_JUNIT_OUTPUT: test-results/jest/junit.xml
@@ -61,6 +60,4 @@ workflows:
   node-android-ios:
     jobs:
       - node
-      - android:
-          requires:
-            - node
+      - android
