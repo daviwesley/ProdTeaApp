@@ -29,6 +29,7 @@ jobs:
           name: jest tests
           command: |
             mkdir -p test-results/jest
+            pod install
             yarn run test
           environment:
             JEST_JUNIT_OUTPUT: test-results/jest/junit.xml
