@@ -12,7 +12,7 @@ O TEA engloba diferentes condições marcadas por perturbações do desenvolvime
 ### Backend
 
  - Firebase(Banco de dados NoSQL)
- - react native firebase
+ - react native firebase(SDK para o react native)
 
 ### Aplicativo
 
@@ -26,3 +26,15 @@ O TEA engloba diferentes condições marcadas por perturbações do desenvolvime
  - react native calendars(componente de calendário)
  - react native gesture handler(habilitar gestos com os dedos)
  - react native action button(componente de botão flutuante)
+
+### Ferramentas de Qualidade
+
+ - CircleCI servidor de integração
+ - ESLinter(estilo de código)
+ - Prettier(formatador de código)
+ - Jest(para os testes)
+ - Mkdocs(ferramenta pra gerar documentação)
+
+### Arquitetura
+![arquiteura simples do aplicativo](https://github.com/daviwesley/ProdTeaApp/blob/master/docs/images/arquitetura.png)
+
