@@ -1,0 +1,8 @@
+site_name: ProdTea Documentação
+site_description: 'Aplicativo para auxiliar no gerenciameto de atividades de crianças com autismo'
+site_author: 'Davi Wesley'
+repo_url: 'https://github.com/daviwesley/ProdTeaApp'
+pages:
+    - Home: index.md
+theme:
+  name: 'material'
