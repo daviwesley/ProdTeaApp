@@ -1,4 +1,4 @@
-## ProdTea App
+## ProdTea App [![CircleCI](https://circleci.com/gh/daviwesley/ProdTeaApp.svg?style=svg)](https://circleci.com/gh/daviwesley/ProdTeaApp)
 
 Aplicativo para auxiliar no gerenciamentos de atividades de crianças com autismo na Universidade Federal do Ceará, esse é um projeto coordenado pela professora Anna Beatriz com os Alunos Davi Wesley, Herison Maciel, Váleria e Leandro
 
