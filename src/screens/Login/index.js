@@ -33,7 +33,7 @@ export class Login extends Component {
   }
   componentDidMount() {
     this.props.loginUser("davi@davi.com.br", "davi123");
-    Alert.alert(this.props.auth.loggedIn);
+    Alert.alert("oi");
   }
   render() {
     const { email, senha } = this.state;
