@@ -3,8 +3,7 @@ import {
   View,
   StyleSheet,
   KeyboardAvoidingView,
-  Platform,
-  Alert
+  Platform
 } from "react-native";
 import firebase from "react-native-firebase";
 import LinearGradient from "react-native-linear-gradient";
@@ -30,10 +29,6 @@ export class Login extends Component {
       email: "",
       senha: ""
     };
-  }
-  componentDidMount() {
-    this.props.loginUser("davi@davi.com.br", "davi123");
-    Alert.alert("oi");
   }
   render() {
     const { email, senha } = this.state;
