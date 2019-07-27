@@ -40,7 +40,7 @@ export class Login extends Component {
         behavior="padding"
         enabled={Platform.OS === "ios"}
       >
-        {this.props.auth.loggedIn && navigate("tab1")}
+        {this.props.auth.loggedIn && this.props.navigation.navigate("tab1")}
         <LinearGradient
           colors={["#489C6A", "#479566"]}
           style={style.container}
@@ -97,7 +97,7 @@ export class Login extends Component {
               crie uma aqui
             </Paragraph>
           </View>
-          <Title>{this.props.auth.error}</Title>
+          {/* <Title>{this.props.auth.error}</Title> */}
         </LinearGradient>
       </KeyboardAvoidingView>
     );
