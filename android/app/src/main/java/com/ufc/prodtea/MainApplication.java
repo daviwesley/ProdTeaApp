@@ -3,6 +3,7 @@ package com.ufc.prodtea;
 import android.support.multidex.MultiDexApplication;
 
 import com.facebook.react.ReactApplication;
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.smixx.reactnativeicons.ReactNativeIcons;
 import com.BV.LinearGradient.LinearGradientPackage;
@@ -45,6 +46,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
+            new SplashScreenReactPackage(),
             new VectorIconsPackage(),
             new ReactNativeIcons(),
             new LinearGradientPackage(),

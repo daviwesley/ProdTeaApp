@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View, StatusBar } from "react-native";
 import { Provider as Theme, DefaultTheme } from "react-native-paper";
+import SplashScreen from "react-native-splash-screen";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 //import LinearGradient from "react-native-linear-gradient";
@@ -14,7 +15,7 @@ export default class App extends React.Component {
     this.secondary = {
       ...DefaultTheme,
       dark: true,
-      roundness: 2,
+      roundness: 4,
       colors: {
         ...DefaultTheme.colors,
         primary: "#097551",
@@ -23,7 +24,8 @@ export default class App extends React.Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    SplashScreen.hide();
     // TODO: You: Do firebase things
     // const { user } = await firebase.auth().signInAnonymously();
     // console.warn('User -> ', user.toJSON());
