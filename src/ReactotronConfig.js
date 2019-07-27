@@ -1,7 +1,7 @@
 import Reactotron from "reactotron-react-native";
 import { reactotronRedux } from "reactotron-redux";
 
-const reactotron = Reactotron.configure({ name: "React Native Demo" })
+const reactotron = Reactotron.configure({ name: "ProdTea App" })
   .use(reactotronRedux()) //  <- here i am!
   .connect({
     server: "localhost", // for Genymotion
