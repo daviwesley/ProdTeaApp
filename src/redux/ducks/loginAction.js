@@ -10,9 +10,9 @@ export const types = {
   LOGIN_USER_FAIL: "auth/LOGIN_FAIL",
   LOGIN_LOADING: "auth/LOGIN_LOADING"
 };
-
+const INITIAL = { loading: false, loggedIn: false };
 //reducer
-const auth = (state = { loading: false, loggedIn: false }, action) => {
+const auth = (state = INITIAL, action) => {
   switch (action.type) {
     case types.CREATE_USER_SUCCESS:
       const {
@@ -87,7 +87,7 @@ export const loginUser = (email, pass) => dispatch => {
       dispatch(loginUserSuccess(resp));
     })
     .catch(error => {
-      dispatch(loginUserFail(error));
+      dispatch(loginUserFail(error.code));
     });
 };
 

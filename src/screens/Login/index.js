@@ -3,9 +3,9 @@ import {
   View,
   StyleSheet,
   KeyboardAvoidingView,
-  Platform
+  Platform,
+  Alert
 } from "react-native";
-import firebase from "react-native-firebase";
 import LinearGradient from "react-native-linear-gradient";
 import {
   Button,
@@ -15,9 +15,7 @@ import {
   Paragraph
 } from "react-native-paper";
 import { connect } from "react-redux";
-// import { createUser, loginUser } from "../../redux/actions/loginAction";
-import { createUser, loginUser } from "../../redux/ducks/loginAction";
-import { createActivities } from "../../redux/ducks/activitiesAction";
+import { loginUser } from "../../redux/ducks/loginAction";
 
 export class Login extends Component {
   static navigationOptions = {
@@ -30,6 +28,10 @@ export class Login extends Component {
       senha: ""
     };
   }
+  handleSubmit = () => {
+    const { email, senha } = this.state;
+    this.props.loginUser(email, senha);
+  };
   render() {
     const { email, senha } = this.state;
     return (
@@ -38,6 +40,7 @@ export class Login extends Component {
         behavior="padding"
         enabled={Platform.OS === "ios"}
       >
+        {this.props.auth.loggedIn && navigate("tab1")}
         <LinearGradient
           colors={["#489C6A", "#479566"]}
           style={style.container}
@@ -78,7 +81,7 @@ export class Login extends Component {
             onChangeText={text => this.setState({ senha: text })}
           />
           <Button
-            onPress={() => null}
+            onPress={() => this.handleSubmit()}
             mode="contained"
             loading={this.props.auth.loading}
             disabled={this.props.auth.loading}
@@ -94,7 +97,7 @@ export class Login extends Component {
               crie uma aqui
             </Paragraph>
           </View>
-          <Title>{this.props.auth.userId}</Title>
+          <Title>{this.props.auth.error}</Title>
         </LinearGradient>
       </KeyboardAvoidingView>
     );
@@ -136,8 +139,6 @@ const mapStatetoProps = state => {
 };
 
 const mapDispatchtoProps = {
-  createUser,
-  createActivities,
   loginUser
 };
 export default connect(

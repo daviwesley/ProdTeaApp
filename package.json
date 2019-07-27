@@ -29,14 +29,16 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "eslint": "^6.0.1",
     "@babel/core": "^7.4.3",
     "@babel/runtime": "^7.4.3",
     "babel-jest": "^24.7.1",
+    "eslint": "^6.0.1",
     "fs-extra": "^7.0.1",
     "jest": "^24.7.1",
     "metro-react-native-babel-preset": "^0.53.1",
     "react-test-renderer": "16.8.3",
+    "reactotron-react-native": "^3.6.4",
+    "reactotron-redux": "^3.1.1",
     "replace-in-file": "^3.4.4"
   },
   "jest": {

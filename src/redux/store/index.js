@@ -1,7 +1,14 @@
 import rootReducer from "../reducers";
-import { applyMiddleware, createStore } from "redux";
+import { createStore, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
+import Reactotron from "../../ReactotronConfig";
 
-const defaultState = {};
+const middleware = applyMiddleware(thunk);
 
-export default createStore(rootReducer, applyMiddleware(thunk));
+export default createStore(
+  rootReducer,
+  compose(
+    middleware,
+    Reactotron.createEnhancer()
+  )
+);
