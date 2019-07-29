@@ -1,19 +1,16 @@
 import React, { Component } from "react";
-import {
-  View,
-  StyleSheet,
-  KeyboardAvoidingView,
-  Platform,
-  Alert
-} from "react-native";
+import { View, StyleSheet, KeyboardAvoidingView, Platform } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import {
   Button,
   TextInput,
   Avatar,
-  Title,
-  Paragraph
+  Headline,
+  Paragraph,
+  Portal,
+  Dialog
 } from "react-native-paper";
+import firebase from "react-native-firebase";
 import { connect } from "react-redux";
 import { loginUser } from "../../redux/ducks/loginAction";
 
@@ -25,36 +22,60 @@ export class Login extends Component {
     super(props);
     this.state = {
       email: "",
-      senha: ""
+      senha: "",
+      visible: false
     };
   }
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.props.navigation.navigate("tab1");
+      }
+    });
+  }
+  _showDialog = () => this.setState({ visible: true });
+
+  _hideDialog = () => this.setState({ visible: false });
+
   handleSubmit = () => {
     const { email, senha } = this.state;
-    this.props.loginUser(email, senha);
+    if (email == "" || senha == "") {
+      this._showDialog();
+    } else this.props.loginUser(email, senha);
   };
   render() {
     const { email, senha } = this.state;
+
     return (
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior="padding"
         enabled={Platform.OS === "ios"}
       >
-        {this.props.auth.loggedIn && this.props.navigation.navigate("tab1")}
         <LinearGradient
           colors={["#489C6A", "#479566"]}
           style={style.container}
           start={{ x: 1, y: 0 }}
           end={{ x: 0, y: 1 }}
         >
-          {this.props.auth.loggedIn && this.props.navigation.navigate("tab1")}
           <View style={style.image}>
             <Avatar.Image
               size={80}
               source={require("../../assets/maciel.jpeg")}
             />
           </View>
-          <Title style={{ textAlign: "center" }}>ProdTea</Title>
+          <Portal>
+            <Dialog visible={this.state.visible} onDismiss={this._hideDialog}>
+              <Dialog.Title>Alerta</Dialog.Title>
+              <Dialog.Content>
+                <Paragraph>Usuário/Senha não podem estar vazios</Paragraph>
+              </Dialog.Content>
+              <Dialog.Actions>
+                <Button onPress={this._hideDialog}>OK</Button>
+              </Dialog.Actions>
+            </Dialog>
+          </Portal>
+          <Headline style={{ textAlign: "center" }}>ProdTea</Headline>
           <TextInput
             ref={ref => (this.email = ref)}
             blurOnSubmit={false}
@@ -67,6 +88,7 @@ export class Login extends Component {
             keyboardType="email-address"
             returnKeyType="next"
             onSubmitEditing={() => this.senha.focus()}
+            error={this.props.auth.userError}
           />
           <TextInput
             ref={ref => (this.senha = ref)}
@@ -79,6 +101,7 @@ export class Login extends Component {
             onSubmitEditing={() => this.props.loginUser(email, senha)}
             value={this.state.senha}
             onChangeText={text => this.setState({ senha: text })}
+            error={this.props.auth.passwordError}
           />
           <Button
             onPress={() => this.handleSubmit()}
@@ -97,7 +120,6 @@ export class Login extends Component {
               crie uma aqui
             </Paragraph>
           </View>
-          {/* <Title>{this.props.auth.error}</Title> */}
         </LinearGradient>
       </KeyboardAvoidingView>
     );

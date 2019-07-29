@@ -147,7 +147,7 @@ const auth = createStackNavigator(
 
 const switchNavigation = createSwitchNavigator({
   auth: {
-    screen: auth
+    screen: auth // carrega primeiro a tela de autenticação
   },
   main: {
     screen: drawer

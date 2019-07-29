@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import { KeyboardAvoidingView, StyleSheet, View } from "react-native";
-import { Button, TextInput } from "react-native-paper";
+import {
+  Button,
+  TextInput,
+  Portal,
+  Dialog,
+  Paragraph
+} from "react-native-paper";
+import firebase from "react-native-firebase";
 import { createUser } from "../../redux/ducks/loginAction";
 import { connect } from "react-redux";
 import { Theme } from "../../styles";
@@ -20,15 +27,53 @@ export class Cadastro extends Component {
       email: "",
       nome: "",
       senha: "",
-      confSenha: ""
+      confSenha: "",
+      visible: false,
+      message: "",
+      senhaError: false
     };
   }
-  render() {
-    const { navigate } = this.props.navigation;
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.props.navigation.navigate("tab1");
+      }
+    });
+  }
+
+  handleSubmit = () => {
     const { email, nome, senha, confSenha } = this.state;
+    if (email === "" || nome === "" || senha === "" || confSenha === "") {
+      this.setState({ message: "Todos os campos devem ser preenchidos" });
+      this._showDialog();
+    } else if (senha !== confSenha) {
+      this.setState({ message: "As senhas devem ser iguais" });
+      this.setState({ senhaError: true });
+      this._showDialog();
+    } else if (nome === "") {
+      this.setState({ message: "Por favor, informe seu nome" });
+      this._showDialog();
+    } else this.props.createUser(email, senha, nome);
+  };
+  _showDialog = () => this.setState({ visible: true });
+
+  _hideDialog = () => this.setState({ visible: false });
+
+  render() {
     return (
       <KeyboardAvoidingView style={styles.container} behavior="padding">
-        {this.props.auth.loggedIn && navigate("tab1")}
+        <Portal>
+          <Dialog visible={this.state.visible} onDismiss={this._hideDialog}>
+            <Dialog.Title>Alerta</Dialog.Title>
+            <Dialog.Content>
+              <Paragraph>{this.state.message}</Paragraph>
+            </Dialog.Content>
+            <Dialog.Actions>
+              <Button onPress={this._hideDialog}>OK</Button>
+            </Dialog.Actions>
+          </Dialog>
+        </Portal>
         <View style={{ flex: 1 }}>
           <TextInput
             // style={style.texInput}
@@ -63,11 +108,12 @@ export class Cadastro extends Component {
             value={this.state.senha}
             returnKeyType="next"
             onChangeText={text => this.setState({ senha: text })}
+            error={this.state.senhaError}
           />
           <TextInput
             // style={style.texInput}
             ref={ref => (this.confSenha = ref)}
-            onSubmitEditing={() => this.props.createUser(email, senha)}
+            onSubmitEditing={() => this.handleSubmit()}
             blurOnSubmit={false}
             secureTextEntry
             mode="flat"
@@ -75,11 +121,13 @@ export class Cadastro extends Component {
             value={this.state.confSenha}
             returnKeyType="send"
             onChangeText={text => this.setState({ confSenha: text })}
+            error={this.state.senhaError}
           />
           <View style={styles.buttonContainer}>
             <Button
               mode="contained"
-              onPress={() => this.props.createUser(email, senha)}
+              onPress={() => this.handleSubmit()}
+              loading={this.props.auth.loading}
             >
               CADASTRAR
             </Button>
