@@ -36,5 +36,5 @@ O TEA engloba diferentes condições marcadas por perturbações do desenvolvime
  - Mkdocs(ferramenta pra gerar documentação)
 
 ### Arquitetura
-![arquiteura simples do aplicativo](https://github.com/daviwesley/ProdTeaApp/blob/master/docs/images/arquitetura.png)
+![arquiteura simples do aplicativo](https://raw.githubusercontent.com/daviwesley/ProdTeaApp/master/docs/images/arquitetura.png)
 
