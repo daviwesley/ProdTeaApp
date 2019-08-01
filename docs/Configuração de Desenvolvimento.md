@@ -23,13 +23,13 @@ Primeiramente você precisa que o `python` esteja instalado em sua máquina e ta
     Voçê pode encontrar o instalador do python no [portal](https://www.python.org/downloads/) oficial
 
 ```bash
-$ sudo pip install pipenv
+sudo pip install pipenv
 ```
 
 logo depois de executar esse comando certifique-se que você esteja dentro da pasta do projeto e execute o seguinte comando
 
 ```bash
-$ pipenv shell
+pipenv shell
 ```
 
 ### Acessar o site o gerado
@@ -37,13 +37,13 @@ $ pipenv shell
 Para acessar o site gerado pelo `mkdocs` execute o seguinte comando no terminal
 
 ```bash
-$ mkdocs serve
+mkdocs serve
 ```
 ### Fazer o deploy no github
 
 Para que esse site gerado seja disponibilizado online iremos utilizar o github pages, que oferece um servidor para hospedar as nossas páginas `html`, para fazer isso rode o seguinte comando no terminal
 
 ```bash
-$ mkdocs gh-deploy
+mkdocs gh-deploy
 ```
 logo após esse comando ele disponibilizará a url para acessar o site da documentação online 
