@@ -289,6 +289,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#fazer-o-deploy-no-github" title="Fazer o deploy no github" class="md-nav__link">
+    Fazer o deploy no github
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -352,6 +359,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#fazer-o-deploy-no-github" title="Fazer o deploy no github" class="md-nav__link">
+    Fazer o deploy no github
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -393,10 +407,10 @@
 <p>A documentação se encontra na pasta <code>docs</code> onde contém arquivos com a extensão <code>.md</code> ou seja usa marcação chamada <code>mardown</code>, então todos os arquivos devem usa-lo para que o <code>mkdocs</code> consiga gerar o site da documentação</p>
 <h3 id="instalando-o-mkdocs">Instalando o Mkdocs</h3>
 <p>Primeiramente você precisa que o <code>python</code> esteja instalado em sua máquina e também a ferramenta <code>pip</code> que é o gerenciador de pacotes do python, com essas ferramentas instaladas execute os seguintes comandos</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>Voçê pode encontrar o instalador do python no <a href="https://www.python.org/downloads/">portal</a> oficial</p>
+</div>
 <pre><code class="bash">$ sudo pip install pipenv
 </code></pre>
 
@@ -408,6 +422,13 @@
 <p>Para acessar o site gerado pelo <code>mkdocs</code> execute o seguinte comando no terminal</p>
 <pre><code class="bash">$ mkdocs serve
 </code></pre>
+
+<h3 id="fazer-o-deploy-no-github">Fazer o deploy no github</h3>
+<p>Para que esse site gerado seja disponibilizado online iremos utilizar o github pages, que oferece um servidor para hospedar as nossas páginas <code>html</code>, para fazer isso rode o seguinte comando no terminal</p>
+<pre><code class="bash">$ mkdocs gh-deploy
+</code></pre>
+
+<p>logo após esse comando ele disponibilizará a url para acessar o site da documentação online </p>
                 
                   
                 
