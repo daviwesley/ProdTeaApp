@@ -124,7 +124,9 @@ export const createUser = (email, pass, name) => dispatch => {
     .then(resp => {
       dispatch(createUserSuccess(resp));
       firebase.auth().currentUser.updateProfile({
-        displayName: name
+        displayName: name,
+        // TODO
+        //photoURL: "https://example.com/jane-q-user/profile.jpg"
       });
       dispatch(loginLoading(false));
     })
@@ -152,6 +154,16 @@ export const loginUser = (email, pass) => dispatch => {
         case "auth/wrong-password":
           dispatch(passwordError(true));
           dispatch(loginUserFail("Senha incorreta"));
+          dispatch(loginLoading(false));
+          break;
+        case "auth/invalid-email":
+          dispatch(passwordError(true));
+          dispatch(loginUserFail("Endereço de e-mail inválido"));
+          dispatch(loginLoading(false));
+          break;
+        case "auth/user-disabled":
+          dispatch(passwordError(true));
+          dispatch(loginUserFail("Sua conta foi desativada"));
           dispatch(loginLoading(false));
           break;
         default:

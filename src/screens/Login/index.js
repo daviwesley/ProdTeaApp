@@ -12,7 +12,7 @@ import {
 } from "react-native-paper";
 import firebase from "react-native-firebase";
 import { connect } from "react-redux";
-import { loginUser } from "../../redux/ducks/loginAction";
+import { loginUser, loginUserFail  } from "../../redux/ducks/loginAction";
 
 export class Login extends Component {
   static navigationOptions = {
@@ -35,17 +35,20 @@ export class Login extends Component {
   }
   _showDialog = () => this.setState({ visible: true });
 
-  _hideDialog = () => this.setState({ visible: false });
+  _hideDialog = () => {
+    this.props.loginUserFail("")
+    this.setState({ visible: false });
+    }
 
-  handleSubmit = () => {
+  handleSubmit =  () => {
     const { email, senha } = this.state;
     if (email == "" || senha == "") {
+      this.props.loginUserFail("Usuário/Senha devem ser preenchidos")
       this._showDialog();
     } else this.props.loginUser(email, senha);
   };
   render() {
     const { email, senha } = this.state;
-
     return (
       <KeyboardAvoidingView
         style={{ flex: 1 }}
@@ -65,10 +68,10 @@ export class Login extends Component {
             />
           </View>
           <Portal>
-            <Dialog visible={this.state.visible} onDismiss={this._hideDialog}>
+            <Dialog visible={this.props.auth.error || this.state.visible} onDismiss={this._hideDialog}>
               <Dialog.Title>Alerta</Dialog.Title>
               <Dialog.Content>
-                <Paragraph>Usuário/Senha não podem estar vazios</Paragraph>
+                <Paragraph>{this.props.auth.error}</Paragraph>
               </Dialog.Content>
               <Dialog.Actions>
                 <Button onPress={this._hideDialog}>OK</Button>
@@ -146,11 +149,12 @@ const style = StyleSheet.create({
   },
   link: {
     fontSize: 10,
-    color: "blue",
+    color: "rgba(0, 122, 206,0.9)",
     marginLeft: 1
   },
   text: {
-    fontSize: 10
+    fontSize: 10,
+    color: "rgba(255,255,255,0.5)"
   }
 });
 
@@ -161,7 +165,8 @@ const mapStatetoProps = state => {
 };
 
 const mapDispatchtoProps = {
-  loginUser
+  loginUser,
+  loginUserFail
 };
 export default connect(
   mapStatetoProps,
