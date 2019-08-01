@@ -5,7 +5,7 @@ Aplicativo para auxiliar no gerenciamentos de atividades de crianças com autism
 ### Funcionalidades
 
 - [x] Login
-- [ ] Cadastro de usuários
+- [x] Cadastro de usuários
 - [x] Calendário
 - [ ] Calendário sincronizado remotamente
 - [ ] Customização temas
