@@ -19,8 +19,8 @@ A documentação se encontra na pasta `docs` onde contém arquivos com a extens�
 
 Primeiramente você precisa que o `python` esteja instalado em sua máquina e também a ferramenta `pip` que é o gerenciador de pacotes do python, com essas ferramentas instaladas execute os seguintes comandos
 
-!!! note
-Voçê pode encontrar o instalador do python no [portal](https://www.python.org/downloads/) oficial
+!!! info
+    Voçê pode encontrar o instalador do python no [portal](https://www.python.org/downloads/) oficial
 
 ```bash
 $ sudo pip install pipenv
@@ -39,3 +39,11 @@ Para acessar o site gerado pelo `mkdocs` execute o seguinte comando no terminal
 ```bash
 $ mkdocs serve
 ```
+### Fazer o deploy no github
+
+Para que esse site gerado seja disponibilizado online iremos utilizar o github pages, que oferece um servidor para hospedar as nossas páginas `html`, para fazer isso rode o seguinte comando no terminal
+
+```bash
+$ mkdocs gh-deploy
+```
+logo após esse comando ele disponibilizará a url para acessar o site da documentação online 
