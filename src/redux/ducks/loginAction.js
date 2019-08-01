@@ -147,7 +147,7 @@ export const loginUser = (email, pass) => dispatch => {
     .catch(error => {
       switch (error.code) {
         case "auth/user-not-found":
-          dispatch(loginUserFail("Usuário não encontrado"));
+          dispatch(loginUserFail("Endereço de e-mail não encontrado"));
           dispatch(userError(true));
           dispatch(loginLoading(false));
           break;
