@@ -17,6 +17,8 @@ Aplicativo para auxiliar no gerenciamentos de atividades de crianças com autism
 - [x] Navegação com Drawer(gaveta de navegação)
 - [x] Gerenciamento de estado(Redux)
 
-### License
+### Documentação
+Você pode ter acesso a documentação nesse [link](https://daviwesley.github.io/ProdTeaApp/)
 
-- See [LICENSE](/LICENSE)
+
+
