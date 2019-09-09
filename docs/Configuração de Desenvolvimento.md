@@ -58,7 +58,7 @@ logo após esse comando ele disponibilizará a url para acessar o site da docume
 
 Primeiramente crie um projeto ao clicar no botão "crie um projeto" no site indicado anteriormente
 
-![enter image description here](dota2.com)
+![enter image description here](https://raw.githubusercontent.com/daviwesley/ProdTeaApp/master/docs/images/tutorial.png)
 
 Siga os passos recomendados até a conclusão da criação do projeto 
 > pode levar alguns minutos até o projeto está pronto, dependendo da sua conexão da internet
@@ -66,7 +66,7 @@ Siga os passos recomendados até a conclusão da criação do projeto
 ### Configuração do Android
 Agora é necessário integrar o Firebase que acabamos de fazer ao nosso projeto android
 
-![enter image description here](dota2.com)
+![enter image description here](https://raw.githubusercontent.com/daviwesley/ProdTeaApp/master/docs/images/android.png)
 
 >clique na logo do android para iniciar a integração
 
@@ -74,12 +74,14 @@ logo após clicar no ícone abrirá uma caixa de dialogo para preencher alguns d
 
 >abrirá a seguinte tela.
 
-![tela de ](dota2.com) 
+![tela de ](https://raw.githubusercontent.com/daviwesley/ProdTeaApp/master/docs/images/registrarApp.png) 
 
  - nome do pacote do android
  - apelido do app
  
  O nome do pacote do Android pode ser encontrado no seguinte arquivo `android/app/build.gradle` procure pela chave `applicationID` o valor dessa chave é o nome do pacote do android.
+
+ ![tela de ](https://raw.githubusercontent.com/daviwesley/ProdTeaApp/master/docs/images/aplicationID.png)
  
  O apelido é opcional mas o recomendado é sempre escolher o mesmo nome do App e finalize o projeto.
 
