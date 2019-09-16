@@ -31,7 +31,12 @@ logo depois de executar esse comando certifique-se que você esteja dentro da pa
 ```bash
 pipenv shell
 ```
-
+```bash
+pipenv install
+```
+!!! info
+    Esse comando só precisa ser executado uma única vez porque ele instala as dependencias do Mkdocs
+    
 ### Acessar o site o gerado
 
 Para acessar o site gerado pelo `mkdocs` execute o seguinte comando no terminal
