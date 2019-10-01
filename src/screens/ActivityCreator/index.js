@@ -13,12 +13,6 @@ import {
   Appbar
 } from "react-native-paper";
 
-export function navigationOptions({ navigation }) {
-  return {
-    title: "false"
-  };
-}
-
 const ActivityCreator = () => {
   const [checked, setChecked] = useState("checked");
   const [titulo, setTitulo] = useState("");
@@ -130,6 +124,10 @@ const ActivityCreator = () => {
       </View>
     </View>
   );
+};
+
+ActivityCreator.navigationOptions = {
+  header: null
 };
 
 const styles = StyleSheet.create({

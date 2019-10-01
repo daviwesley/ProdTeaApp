@@ -18,6 +18,7 @@ import Perfil from "../screens/Perfil";
 import Login from "../screens/Login";
 import Cadastro from "../screens/Cadastro";
 import AgendaHome from "../screens/AgendaHome";
+import activityCreator from "../screens/ActivityCreator";
 
 const tab = createBottomTabNavigator(
   {
@@ -109,6 +110,9 @@ const stack = createStackNavigator({
         )
       };
     }
+  },
+  activityScreen: {
+    screen: activityCreator
   }
 });
 
@@ -144,6 +148,17 @@ const auth = createStackNavigator(
     initialRouteName: "login"
   }
 );
+
+// const activity = createStackNavigator(
+//   {
+//     activityCreator: {
+//       screen: activityCreator
+//     }
+//   },
+//   {
+//     mode: "modal"
+//   }
+// );
 
 const switchNavigation = createSwitchNavigator({
   auth: {
