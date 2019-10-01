@@ -11,7 +11,6 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import { Theme } from "../styles";
 
 // telas
-import Home from "../screens/AgendaHome";
 import Compromissos from "../screens/Compromissos";
 import Metas from "../screens/Metas";
 import Perfil from "../screens/Perfil";
