@@ -13,7 +13,7 @@ import {
   Appbar
 } from "react-native-paper";
 
-const ActivityCreator = () => {
+const ActivityCreator = ({ navigation }) => {
   const [checked, setChecked] = useState("checked");
   const [titulo, setTitulo] = useState("");
   const [date, setDate] = useState("2016-05-15");
@@ -118,7 +118,7 @@ const ActivityCreator = () => {
         <Button style={styles.button} onPress={() => null}>
           Salvar
         </Button>
-        <Button style={styles.button} onPress={() => null}>
+        <Button style={styles.button} onPress={() => navigation.goBack()}>
           Cancelar
         </Button>
       </View>
