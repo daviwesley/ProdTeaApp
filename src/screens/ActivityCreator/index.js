@@ -3,6 +3,8 @@ import { Text, View, StyleSheet } from "react-native";
 import DatePicker from "react-native-datepicker";
 // You can import from local files
 import Date, { Container } from "../../components/DatePicker";
+import { connect } from "react-redux";
+import { createActivities } from "../../redux/ducks/activitiesAction";
 
 // or any pure javascript modules available in npm
 import {
@@ -12,26 +14,28 @@ import {
   Button,
   Appbar
 } from "react-native-paper";
+import { functionTypeAnnotation } from "@babel/types";
 
-const ActivityCreator = ({ navigation }) => {
+const ActivityCreator = ({ navigation, createActivities }) => {
   const [checked, setChecked] = useState("checked");
-  const [titulo, setTitulo] = useState("");
-  const [date, setDate] = useState("2016-05-15");
-  const [descricao, setDescricao] = useState("");
+  const [title, setTitle] = useState("");
+  const [startDate, setStartDate] = useState("2016-05-15");
+  const [endDate, setEndDate] = useState("2016-05-15");
+  const [description, setDescription] = useState("");
 
   return (
     <View style={styles.container}>
       <TextInput
-        value={titulo}
-        onChangeText={e => setTitulo(e)}
+        value={title}
+        onChangeText={e => setTitle(e)}
         placeholder="Digite o nome da atividade"
         mode="flat"
         label="Título"
         style={styles.input}
       />
       <TextInput
-        value={descricao}
-        onChangeText={e => setDescricao(e)}
+        value={description}
+        onChangeText={e => setDescription(e)}
         placeholder="Descreva o propósito da atividade"
         mode="flat"
         label="Descrição"
@@ -41,7 +45,7 @@ const ActivityCreator = ({ navigation }) => {
         <Text style={styles.text}>Inicio</Text>
         <DatePicker
           style={{ width: 200 }}
-          date={date}
+          date={startDate}
           mode="datetime"
           placeholder="select date"
           format="D MMMM YYYY, h:mm"
@@ -61,7 +65,7 @@ const ActivityCreator = ({ navigation }) => {
             // ... You can check the source to find the other keys.
           }}
           onDateChange={date => {
-            setDate(date);
+            setStartDate(date);
           }}
         />
       </Container>
@@ -69,7 +73,8 @@ const ActivityCreator = ({ navigation }) => {
         <Text style={styles.text}>Fim</Text>
         <DatePicker
           style={{ width: 200 }}
-          date={date}
+          locale="jp"
+          date={endDate}
           mode="datetime"
           placeholder="select date"
           format="D MMMM YYYY, h:mm"
@@ -90,7 +95,7 @@ const ActivityCreator = ({ navigation }) => {
             // ... You can check the source to find the other keys.
           }}
           onDateChange={date => {
-            setDate(date);
+            setEndDate(date);
           }}
         />
       </Container>
@@ -115,11 +120,19 @@ const ActivityCreator = ({ navigation }) => {
           flexDirection: "row"
         }}
       >
-        <Button style={styles.button} onPress={() => null}>
+        <Button
+          style={styles.button}
+          onPress={() =>
+            createActivities({ title, startDate, endDate, description })
+          }
+        >
           Salvar
         </Button>
         <Button style={styles.button} onPress={() => navigation.goBack()}>
           Cancelar
+        </Button>
+        <Button onPress={() => createActivities({ teste: "teste" })}>
+          my ass
         </Button>
       </View>
     </View>
@@ -150,4 +163,17 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ActivityCreator;
+const mapStatetoProps = state => {
+  return {
+    auth: state.auth
+  };
+};
+
+const mapDispatchtoProps = {
+  createActivities
+};
+
+export default connect(
+  mapStatetoProps,
+  mapDispatchtoProps
+)(ActivityCreator);
