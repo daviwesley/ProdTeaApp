@@ -37,6 +37,28 @@ export const createActivities = dados => dispatch => {
   db.child("activities").push(dados);
 };
 
+export const removeActivities = id => dispatch => {
+  const db = firebase
+    .database()
+    .ref(`/users/${firebase.auth().currentUser.uid}`);
+  const atv = db.child(`activities/${id}`);
+  atv
+    .remove()
+    .then(function() {
+      console.log("Remove succeeded.");
+    })
+    .catch(function(error) {
+      console.log("Remove failed: " + error.message);
+    });
+};
+
+export const updateActivities = dados => dispatch => {
+  const db = firebase
+    .database()
+    .ref(`/users/${firebase.auth().currentUser.uid}`);
+  db.child("activities").update(dados);
+};
+
 export const activityLoading = status => {
   return {
     type: Types.ACTIVITY_LOADING,
