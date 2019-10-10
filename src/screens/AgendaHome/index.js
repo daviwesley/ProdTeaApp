@@ -142,8 +142,9 @@ export default class AgendaHome extends React.Component {
         <ActionButton buttonColor="#489C6A" offsetX={6}>
           <ActionButton.Item
             buttonColor="#9b59b6"
-            title="Editar"
-            onPress={() => console.log("notes tapped!")}
+            title="Criar atividade"
+            accessibilityHint="Cria uma atividade"
+            onPress={() => this.props.navigation.navigate("activityScreen")}
           >
             <Icon name="md-create" style={styles.actionButtonIcon} />
           </ActionButton.Item>
