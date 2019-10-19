@@ -8,6 +8,8 @@ const Action = styled.View`
   align-items: center;
 `;
 
+//style
+
 export { Action as Caixa };
 
 const Container = styled.View`
