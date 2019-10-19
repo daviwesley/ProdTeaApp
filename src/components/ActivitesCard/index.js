@@ -1,14 +1,13 @@
 import * as React from "react";
 import { Text, View, StyleSheet } from "react-native";
-import Constants from "expo-constants";
-import { Caixa, Conteudo } from "./styles.js";
-import AssetExample from "./components/AssetExample";
+import { Caixa, Container } from "./styles.js";
+import { Container } from "../DatePicker/index.js";
 
-export default class App extends React.Component {
+export default class ActivitesCard extends React.Component {
   render() {
     return (
       <Caixa>
-        <Conteudo>
+        <Container>
           <Text>Titulo</Text>
           <Text>
             Unus quisque mavult omaemow shindairu credere, quam judicare
@@ -16,7 +15,7 @@ export default class App extends React.Component {
             o arquiteto de seu próprio destino. ...
           </Text>
           <Text>inicio</Text>
-        </Conteudo>
+        </Container>
       </Caixa>
     );
   }
