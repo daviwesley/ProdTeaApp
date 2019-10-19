@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-
+//aprendendo pra
 const Action = styled.View`
   height: 35vh;
   padding: 80px;

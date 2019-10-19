@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { Action, Container } from "./styles.js";
-//com
+//compgi
 export default class ActivitiesCard extends React.Component {
   render() {
     return (
