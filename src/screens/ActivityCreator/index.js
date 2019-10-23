@@ -12,11 +12,13 @@ import {
   Button,
   Appbar
 } from "react-native-paper";
+import { format } from 'date-fns';
+import pt from "date-fns/locale/pt-BR";
 
 const ActivityCreator = ({ navigation }) => {
   const [checked, setChecked] = useState("checked");
   const [titulo, setTitulo] = useState("");
-  const [date, setDate] = useState("2016-05-15");
+  const [date, setDate] = useState("2019-10-19T15:51:28.132Z");
   const [descricao, setDescricao] = useState("");
 
   return (
@@ -42,9 +44,8 @@ const ActivityCreator = ({ navigation }) => {
         <DatePicker
           style={{ width: 200 }}
           date={date}
-          mode="datetime"
-          placeholder="select date"
-          format="D MMMM YYYY, h:mm"
+          mode="date"
+	  placeholder="select date"
           confirmBtnText="Confirmar"
           cancelBtnText="Cancelar"
           customStyles={{
@@ -58,11 +59,9 @@ const ActivityCreator = ({ navigation }) => {
               marginLeft: 36,
               borderWidth: 0
             }
-            // ... You can check the source to find the other keys.
           }}
-          onDateChange={date => {
-            setDate(date);
-          }}
+	 getDateStr={date => format(new Date(date), "d 'de' MMMM 'de' yyyy", {locale: pt})} 
+         onDateChange={date => { setDate(new Date(date)) }}
         />
       </Container>
       <Container>
@@ -70,10 +69,9 @@ const ActivityCreator = ({ navigation }) => {
         <DatePicker
           style={{ width: 200 }}
           date={date}
-          mode="datetime"
+          mode="date"
           placeholder="select date"
-          format="D MMMM YYYY, h:mm"
-          confirmBtnText="Confirmar"
+	  confirmBtnText="Confirmar"
           cancelBtnText="Cancelar"
           customStyles={{
             dateIcon: {
@@ -87,11 +85,9 @@ const ActivityCreator = ({ navigation }) => {
               borderRadius: 2,
               borderWidth: 0
             }
-            // ... You can check the source to find the other keys.
           }}
-          onDateChange={date => {
-            setDate(date);
-          }}
+         onDateChange={date => { setDate(new Date(date)) }}
+	 getDateStr={date => format(new Date(date), "d 'de' MMMM 'de' yyyy", {locale: pt})} 
         />
       </Container>
       <View
