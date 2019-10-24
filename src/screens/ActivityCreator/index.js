@@ -1,19 +1,15 @@
 import React, { useState } from "react";
 import { Text, View, StyleSheet } from "react-native";
-import DatePicker from "react-native-datepicker";
-// You can import from local files
-import Date, { Container } from "../../components/DatePicker";
+import styled from "styled-components/native";
+import MachineTime from "../../components/MachineTime";
+import { TextInput, Checkbox, Button } from "react-native-paper";
 
-// or any pure javascript modules available in npm
-import {
-  Caption,
-  TextInput,
-  Checkbox,
-  Button,
-  Appbar
-} from "react-native-paper";
-import { format } from 'date-fns';
-import pt from "date-fns/locale/pt-BR";
+const Container = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 2;
+  margin-bottom: 2;
+`;
 
 const ActivityCreator = ({ navigation }) => {
   const [checked, setChecked] = useState("checked");
@@ -41,54 +37,11 @@ const ActivityCreator = ({ navigation }) => {
       />
       <Container>
         <Text style={styles.text}>Inicio</Text>
-        <DatePicker
-          style={{ width: 200 }}
-          date={date}
-          mode="date"
-	  placeholder="select date"
-          confirmBtnText="Confirmar"
-          cancelBtnText="Cancelar"
-          customStyles={{
-            dateIcon: {
-              position: "absolute",
-              left: 0,
-              top: 4,
-              marginLeft: 0
-            },
-            dateInput: {
-              marginLeft: 36,
-              borderWidth: 0
-            }
-          }}
-	 getDateStr={date => format(new Date(date), "d 'de' MMMM 'de' yyyy", {locale: pt})} 
-         onDateChange={date => { setDate(new Date(date)) }}
-        />
+        <MachineTime />
       </Container>
       <Container>
         <Text style={styles.text}>Fim</Text>
-        <DatePicker
-          style={{ width: 200 }}
-          date={date}
-          mode="date"
-          placeholder="select date"
-	  confirmBtnText="Confirmar"
-          cancelBtnText="Cancelar"
-          customStyles={{
-            dateIcon: {
-              position: "absolute",
-              left: 0,
-              top: 4,
-              marginLeft: 0
-            },
-            dateInput: {
-              marginLeft: 36,
-              borderRadius: 2,
-              borderWidth: 0
-            }
-          }}
-         onDateChange={date => { setDate(new Date(date)) }}
-	 getDateStr={date => format(new Date(date), "d 'de' MMMM 'de' yyyy", {locale: pt})} 
-        />
+        <MachineTime />
       </Container>
       <View
         style={{
