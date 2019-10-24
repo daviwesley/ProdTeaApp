@@ -38,3 +38,57 @@ O TEA engloba diferentes condições marcadas por perturbações do desenvolvime
 ### Arquitetura
 ![arquiteura simples do aplicativo](https://raw.githubusercontent.com/daviwesley/ProdTeaApp/master/docs/images/arquitetura.png)
 
+### Estrutura dos arquivos
+
+```bash
+.
+├── App.js # Ponto de partida do aplicativo
+├── assets # Recursos gráficos
+│   ├── boy.png
+│   ├── calendar.png
+│   ├── icons
+│   │   ├── award.png
+│   │   ├── book.png
+│   │   ├── books.png
+│   │   ├── calendar.png
+│   │   ├── file-empty.png
+│   │   ├── list.png
+│   │   ├── school-material.png
+│   │   └── user3.png
+│   ├── maciel.jpeg
+│   └── ReactNativeFirebase.png
+├── components # Componentes customizados
+│   └── MachineTime
+│       └── index.js
+├── ReactotronConfig.js # Configuração do Reactotron
+├── redux # Gerenciamento de estados
+│   ├── ducks
+│   │   ├── activitiesAction.js
+│   │   └── loginAction.js
+│   ├── reducers
+│   │   └── index.js
+│   └── store
+│       └── index.js
+├── routes # Configuração da navegação entre telas
+│   └── index.js
+├── screens # Telas
+│   ├── ActivityCreator
+│   │   └── index.js
+│   ├── AgendaHome
+│   │   └── index.js
+│   ├── Cadastro
+│   │   └── index.js
+│   ├── Compromissos
+│   │   └── index.js
+│   ├── Configuracao
+│   │   └── index.js
+│   ├── Login
+│   │   └── index.js
+│   ├── Metas
+│   │   └── index.js
+│   └── Perfil
+│       └── index.js
+└── styles # Estilos customizados
+    └── index.js
+
+```
