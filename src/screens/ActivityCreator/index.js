@@ -1,22 +1,20 @@
 import React, { useState } from "react";
 import { Text, View, StyleSheet } from "react-native";
-import DatePicker from "react-native-datepicker";
-// You can import from local files
-import Date, { Container } from "../../components/DatePicker";
+import styled from "styled-components/native";
+import MachineTime from "../../components/MachineTime";
+import { TextInput, Checkbox, Button } from "react-native-paper";
 
-// or any pure javascript modules available in npm
-import {
-  Caption,
-  TextInput,
-  Checkbox,
-  Button,
-  Appbar
-} from "react-native-paper";
+const Container = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 2;
+  margin-bottom: 2;
+`;
 
 const ActivityCreator = ({ navigation }) => {
   const [checked, setChecked] = useState("checked");
   const [titulo, setTitulo] = useState("");
-  const [date, setDate] = useState("2016-05-15");
+  const [date, setDate] = useState("2019-10-19T15:51:28.132Z");
   const [descricao, setDescricao] = useState("");
 
   return (
@@ -39,60 +37,11 @@ const ActivityCreator = ({ navigation }) => {
       />
       <Container>
         <Text style={styles.text}>Inicio</Text>
-        <DatePicker
-          style={{ width: 200 }}
-          date={date}
-          mode="datetime"
-          placeholder="select date"
-          format="D MMMM YYYY, h:mm"
-          confirmBtnText="Confirmar"
-          cancelBtnText="Cancelar"
-          customStyles={{
-            dateIcon: {
-              position: "absolute",
-              left: 0,
-              top: 4,
-              marginLeft: 0
-            },
-            dateInput: {
-              marginLeft: 36,
-              borderWidth: 0
-            }
-            // ... You can check the source to find the other keys.
-          }}
-          onDateChange={date => {
-            setDate(date);
-          }}
-        />
+        <MachineTime />
       </Container>
       <Container>
         <Text style={styles.text}>Fim</Text>
-        <DatePicker
-          style={{ width: 200 }}
-          date={date}
-          mode="datetime"
-          placeholder="select date"
-          format="D MMMM YYYY, h:mm"
-          confirmBtnText="Confirmar"
-          cancelBtnText="Cancelar"
-          customStyles={{
-            dateIcon: {
-              position: "absolute",
-              left: 0,
-              top: 4,
-              marginLeft: 0
-            },
-            dateInput: {
-              marginLeft: 36,
-              borderRadius: 2,
-              borderWidth: 0
-            }
-            // ... You can check the source to find the other keys.
-          }}
-          onDateChange={date => {
-            setDate(date);
-          }}
-        />
+        <MachineTime />
       </Container>
       <View
         style={{
