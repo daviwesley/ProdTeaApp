@@ -69,13 +69,7 @@ export const Bolinha = styled.View`
   shadow-radius: 2;
 `;
 
-export default function ActivityCard({
-  title,
-  description,
-  startDate,
-  endDate,
-  status
-}) {
+function ActivityCard({ title, description, startDate, endDate, status }) {
   function getStatus() {
     if (status === "doing") {
       return "orange";
@@ -106,3 +100,13 @@ export default function ActivityCard({
     </Container>
   );
 }
+
+ActivityCard.propTypes = {
+  title: String,
+  description: String,
+  startDate: String,
+  endDate: String,
+  status: "done" | "doing" | "canceled"
+};
+
+export default ActivityCard;
