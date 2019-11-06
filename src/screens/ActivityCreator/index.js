@@ -20,6 +20,8 @@ const ActivityCreator = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <TextInput
+        accessibilityRole="nome"
+        accessible
         value={titulo}
         onChangeText={e => setTitulo(e)}
         placeholder="Digite o nome da atividade"
@@ -28,6 +30,7 @@ const ActivityCreator = ({ navigation }) => {
         style={styles.input}
       />
       <TextInput
+        accessible
         value={descricao}
         onChangeText={e => setDescricao(e)}
         placeholder="Descreva o propósito da atividade"

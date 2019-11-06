@@ -9,6 +9,7 @@ export default class Compromissos extends React.Component {
           source={require("../../assets/icons/file-empty.png")}
           style={{ width: 50, height: 50, marginBottom: 12 }}
         />
+
         <Text>Você não tem nenhum compromisso ainda</Text>
         <Button onPress={() => null} mode="outlined">
           Adicionar compromissos

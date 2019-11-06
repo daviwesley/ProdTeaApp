@@ -47,6 +47,7 @@ LocaleConfig.locales.fr = {
 };
 
 LocaleConfig.defaultLocale = "fr";
+
 export default class AgendaHome extends React.Component {
   state = {
     items: {}
