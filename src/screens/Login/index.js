@@ -12,7 +12,7 @@ import {
 } from "react-native-paper";
 import firebase from "react-native-firebase";
 import { connect } from "react-redux";
-import { loginUser, loginUserFail  } from "../../redux/ducks/loginAction";
+import { loginUser, loginUserFail } from "../../redux/ducks/loginAction";
 
 export class Login extends Component {
   static navigationOptions = {
@@ -36,14 +36,14 @@ export class Login extends Component {
   _showDialog = () => this.setState({ visible: true });
 
   _hideDialog = () => {
-    this.props.loginUserFail("")
+    this.props.loginUserFail("");
     this.setState({ visible: false });
-    }
+  };
 
-  handleSubmit =  () => {
+  handleSubmit = () => {
     const { email, senha } = this.state;
     if (email == "" || senha == "") {
-      this.props.loginUserFail("Usuário/Senha devem ser preenchidos")
+      this.props.loginUserFail("Usuário/Senha devem ser preenchidos");
       this._showDialog();
     } else this.props.loginUser(email, senha);
   };
@@ -68,7 +68,10 @@ export class Login extends Component {
             />
           </View>
           <Portal>
-            <Dialog visible={this.props.auth.error || this.state.visible} onDismiss={this._hideDialog}>
+            <Dialog
+              visible={this.props.auth.error || this.state.visible}
+              onDismiss={this._hideDialog}
+            >
               <Dialog.Title>Alerta</Dialog.Title>
               <Dialog.Content>
                 <Paragraph>{this.props.auth.error}</Paragraph>
@@ -80,6 +83,8 @@ export class Login extends Component {
           </Portal>
           <Headline style={{ textAlign: "center" }}>ProdTea</Headline>
           <TextInput
+            accessible
+            placeholder="Login, é necessario inserir seu email"
             ref={ref => (this.email = ref)}
             blurOnSubmit={false}
             style={style.texInput}
@@ -94,6 +99,8 @@ export class Login extends Component {
             error={this.props.auth.userError}
           />
           <TextInput
+            accessible
+            placeholder="insira senha"
             ref={ref => (this.senha = ref)}
             style={style.texInput}
             blurOnSubmit={false}

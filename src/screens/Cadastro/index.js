@@ -77,6 +77,8 @@ export class Cadastro extends Component {
         <View style={{ flex: 1 }}>
           <TextInput
             // style={style.texInput}
+            accessible
+            placeholder="Digite seu nome"
             ref={ref => (this.nome = ref)}
             onSubmitEditing={() => this.email.focus()}
             blurOnSubmit={false}
@@ -88,6 +90,8 @@ export class Cadastro extends Component {
           />
           <TextInput
             // style={style.texInput}
+            accessible
+            placeholder="Insira teu email"
             ref={ref => (this.email = ref)}
             onSubmitEditing={() => this.senha.focus()}
             blurOnSubmit={false}
@@ -99,6 +103,8 @@ export class Cadastro extends Component {
           />
           <TextInput
             // style={style.texInput}
+            accessible
+            placeholder="Insira senha"
             ref={ref => (this.senha = ref)}
             onSubmitEditing={() => this.confSenha.focus()}
             blurOnSubmit={false}
@@ -112,6 +118,8 @@ export class Cadastro extends Component {
           />
           <TextInput
             // style={style.texInput}
+            accessible
+            placeholder="confirme sua senha"
             ref={ref => (this.confSenha = ref)}
             onSubmitEditing={() => this.handleSubmit()}
             blurOnSubmit={false}
